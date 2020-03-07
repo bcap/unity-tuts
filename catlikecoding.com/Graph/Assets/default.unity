@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc20e810bce08444bb04cd4057e0c2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 1428164344275912314, guid: fe7b6a3e0ca104363913ad6f736c1640,
+  pointPrefab: {fileID: 4903737622385201268, guid: a8ab4a91c84744d80a7bac846e43cf54,
     type: 3}
   numPoints: 100
 --- !u!4 &218958345

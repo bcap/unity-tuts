@@ -24,7 +24,8 @@ public class Graph : MonoBehaviour
             point.SetParent(transform);
             position.x += deltaX;
             point.localPosition = position;
-            point.localScale = referenceSize;
+            float deltaSize = (-Mathf.Abs((float)numPoints / 2 - i) + (float)numPoints / 2) / 20f;
+            point.localScale = referenceSize * (1f + deltaSize);
             points[i] = point;
         }
     }
@@ -33,7 +34,6 @@ public class Graph : MonoBehaviour
     {
         GraphFunction func = SinePi;
 
-        // define positions
         for (int i = 0; i < numPoints; i++)
         {
             Transform point = points[i];
@@ -42,8 +42,6 @@ public class Graph : MonoBehaviour
                 func(point.localPosition.x + Time.time),
                 point.localPosition.z
             );
-            float deltaSize = (-Mathf.Abs((float)numPoints / 2 - i) + (float)numPoints / 2) / 20f;
-            point.localScale = referenceSize * (1f + deltaSize);
         }
     }
 
