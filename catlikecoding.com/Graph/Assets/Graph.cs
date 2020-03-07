@@ -24,15 +24,17 @@ public class Graph : MonoBehaviour
             point.SetParent(transform);
             position.x += deltaX;
             point.localPosition = position;
-            float deltaSize = (-Mathf.Abs((float)numPoints / 2 - i) + (float)numPoints / 2) / 20f;
+            float deltaSize = (-Mathf.Abs((float)numPoints / 2 - i) + (float)numPoints / 2) / 15f;
             point.localScale = referenceSize * (1f + deltaSize);
             points[i] = point;
         }
+
+        Update();
     }
 
     void Update()
     {
-        GraphFunction func = SinePi;
+        GraphFunction func = PseudoChaoticWave;
 
         for (int i = 0; i < numPoints; i++)
         {
@@ -54,12 +56,25 @@ public class Graph : MonoBehaviour
 
     private float Sine(float x)
     {
-        return Mathf.Sin(x);
+        return Mathf.Sin(Mathf.PI * x);
     }
 
-    private float SinePi(float x)
+    private float PseudoChaoticWave(float x)
     {
-        return Sine(Mathf.PI * x);
+        float[] formulas = {
+            Mathf.Sin(Mathf.PI * x * 1f),
+            Mathf.Sin(Mathf.PI * x * 1.3f),
+            Mathf.Sin(Mathf.PI * x * 1.5f),
+            Mathf.Sin(Mathf.PI * x * 1.7f),
+            Mathf.Sin(Mathf.PI * x * 2.13f),
+        };
+
+        float result = 0f;
+        for (int i = 0; i < formulas.Length; i++)
+        {
+            result += formulas[i] / (float)formulas.Length;
+        }
+        return result;
     }
 
     private float Squared(float x)

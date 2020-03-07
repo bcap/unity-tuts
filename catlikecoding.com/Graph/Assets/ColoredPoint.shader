@@ -44,8 +44,8 @@
             // fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             // o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
-            o.Albedo.r = (IN.worldPos.x + 1.0) / 2.0 + 0.5;
-            o.Albedo.rg = (IN.worldPos.xy + 1.0) / 2.0 + 0.5;
+            // o.Albedo.r = (IN.worldPos.x + 1.0) / 2.0 + 0.5;
+            o.Albedo.rg = (IN.worldPos.xy + 1.0) / 2.0 + 0.2;
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             // o.Alpha = c.a;
